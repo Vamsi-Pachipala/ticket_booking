@@ -1,0 +1,27 @@
+use casestudy;
+CREATE TABLE Booking (
+    passenger_id VARCHAR(7) NOT NULL,
+    pnr_no VARCHAR(7) DEFAULT '0000000',
+    travel_date VARCHAR(10) NOT NULL,
+    source VARCHAR(50) NOT NULL,
+    destination VARCHAR(50) NOT NULL,
+    status VARCHAR(10) NOT NULL,
+    seat_preference VARCHAR(10) NOT NULL,
+    meal_preference VARCHAR(20) NOT NULL,
+    PRIMARY KEY (passenger_id)
+);
+select * from booking;
+select * from register;
+CREATE TABLE Register (
+    passenger_id VARCHAR(7) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    address VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(10) NOT NULL,
+    PRIMARY KEY (passenger_id)
+);
+SELECT b.*, r.name, r.email, r.address, r.contact_number
+FROM Booking b
+JOIN Register r ON b.passenger_id = r.passenger_id;
+
